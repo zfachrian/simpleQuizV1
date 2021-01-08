@@ -24,7 +24,8 @@ public class Main {
 			// if user choose to register account
 			if (RegOrLogin == 1) {
 				while (ProfOrStudent != 1 && ProfOrStudent != 2 && ProfOrStudent != 3) {
-					System.out.println("1. [ Register as Professor ]\n" + "2. [ Reigster as Student ]\n" + "3. [ Exit ]");
+					System.out
+							.println("1. [ Register as Professor ]\n" + "2. [ Reigster as Student ]\n" + "3. [ Exit ]");
 					ProfOrStudent = getInput();
 				}
 
@@ -33,7 +34,7 @@ public class Main {
 					System.out.print("Passcode: ");
 					String passcode = scan.nextLine();
 
-					if (passcode.equalsIgnoreCase("CS665")) {
+					if (passcode.equalsIgnoreCase("rahasia")) {
 						Register register = new Register("Professor");
 						register.createAccount();
 					} else {
@@ -47,8 +48,7 @@ public class Main {
 					// createAccount("Student");
 					Register register = new Register("Student");
 					register.createAccount();
-				}
-				else if(ProfOrStudent == 3){
+				} else if (ProfOrStudent == 3) {
 					System.out.println("Back to Home Page.");
 					ProfOrStudent = 3;
 				}
@@ -64,121 +64,114 @@ public class Main {
 				}
 				// processing functions
 				else {
-					Singleton x = Singleton.getInstance(); 
+					Singleton x = Singleton.getInstance();
 					System.out.println(x.s);
-					
+
 					System.out.println("This is a " + accountType + " accout.");
 
 					if (accountType.equalsIgnoreCase("PROFESSOR")) {
 						// System.out.println("Etner professor process here");
-						
+
 						int option = 9;
 						// Quiz management
-						while(option != 0) {
+						while (option != 0) {
 							userMenu();
 							option = getInput();
-							
-							if(option == 1) {
-								
-								//while(option != 0) {
-									System.out.println("1. [ Add Quiz Set ]\n2. [ Modify Quiz Answer ]\n3. [ View Student Scores ]\n4. [ Exit ]");
-									option = getInput();
-								
-									// Add Quiz Set
-									if(option == 1) {
-										AbstractFactory professorfactory = ProfessorFactoryProducer.getFactory("Quiz");
-										ProfessorQuiz professorQuiz = professorfactory.manageQuiz("Add");
-										professorQuiz.Quiz();
-									}
-									// Modify Quiz Answer
-									else if(option == 2) {
-										System.out.println("Function currently under construction");
-									}
-									// View Student Scores
-									else if (option == 3){
-										AbstractFactory professorfactory = ProfessorFactoryProducer.getFactory("Quiz");
-										ProfessorQuiz professorQuiz = professorfactory.manageQuiz("VIEW");
-										professorQuiz.Quiz();
-									}
-									// Exit
-									else if (option == 4) {
-										System.out.println("Back to user page");
-										option = 0;
-									}
-									else {
-										System.out.println("Invalid Input.");
-									}
-								//}
-								
+
+							if (option == 1) {
+
+								// while(option != 0) {
+								System.out.println(
+										"1. [ Add Quiz Set ]\n2. [ Modify Quiz Answer ]\n3. [ View Student Scores ]\n4. [ Exit ]");
+								option = getInput();
+
+								// Add Quiz Set
+								if (option == 1) {
+									AbstractFactory professorfactory = ProfessorFactoryProducer.getFactory("Quiz");
+									ProfessorQuiz professorQuiz = professorfactory.manageQuiz("Add");
+									professorQuiz.Quiz();
+								}
+								// Modify Quiz Answer
+								else if (option == 2) {
+									System.out.println("Function currently under construction");
+								}
+								// View Student Scores
+								else if (option == 3) {
+									AbstractFactory professorfactory = ProfessorFactoryProducer.getFactory("Quiz");
+									ProfessorQuiz professorQuiz = professorfactory.manageQuiz("VIEW");
+									professorQuiz.Quiz();
+								}
+								// Exit
+								else if (option == 4) {
+									System.out.println("Back to user page");
+									option = 0;
+								} else {
+									System.out.println("Invalid Input.");
+								}
+								// }
+
 							}
 							// Account management
-							else if(option == 2) {
+							else if (option == 2) {
 								System.out.println("1. [ My Account Info ]\n2. [ View All Accounts ]\n3. [ Exit ]");
 								option = getInput();
-								
-								if(option == 1) {
+
+								if (option == 1) {
 									currentAccountInfo();
-								}
-								else if (option == 2) {
+								} else if (option == 2) {
 									AbstractFactory professorfactory = ProfessorFactoryProducer.getFactory("Account");
 									ProfessorAccount professorAccount = professorfactory.manageAccount("View");
 									professorAccount.Account();
-								}
-								else if(option == 3) {
+								} else if (option == 3) {
 									System.out.println("Back to user page");
 									option = 0;
-								}
-								else {
+								} else {
 									System.out.println("Invalid Input.");
 								}
 							}
 						}
-						/*AbstractFactory professorfactory = ProfessorFactoryProducer.getFactory("Quiz");
-						ProfessorQuiz professorQuiz = professorfactory.manageQuiz("Add");
-						professorQuiz.Quiz();*/
-						
-						
-						
-					} 
+						/*
+						 * AbstractFactory professorfactory =
+						 * ProfessorFactoryProducer.getFactory("Quiz"); ProfessorQuiz professorQuiz =
+						 * professorfactory.manageQuiz("Add"); professorQuiz.Quiz();
+						 */
+
+					}
 					// If Student Logged in
 					else if (accountType.equalsIgnoreCase("STUDENT")) {
-						//System.out.println(x.s);
-						
+						// System.out.println(x.s);
+
 						int option = 9;
 						int studentOption = 9;
 						// Quiz management
-						while(option != 0) {
+						while (option != 0) {
 							userMenu();
 							option = getInput();
-							
+
 							// Quiz management
-							if(option == 1) {
+							if (option == 1) {
 								System.out.println("1. [ Take Quiz ]\n2. [ View Answers ]\n3. [ My Highest Score ]");
 								QuizActionMaker quizActionMaker = new QuizActionMaker();
 								studentOption = getInput();
-								
-								if(studentOption == 1) {
+
+								if (studentOption == 1) {
 									quizActionMaker.StudentTakeQuiz();
-								}
-								else if(studentOption == 2) {
+								} else if (studentOption == 2) {
 									quizActionMaker.StudentViewAnswer();
-								}
-								else if(studentOption == 3) {
+								} else if (studentOption == 3) {
 									quizActionMaker.StudentViewScores();
-								}
-								else {
+								} else {
 									option = 0;
 								}
 							}
 							// Account management
-							else if(option == 2) {
+							else if (option == 2) {
 								System.out.println("1. [ My Account ]");
 								studentOption = getInput();
-								
-								if(studentOption == 1) {
+
+								if (studentOption == 1) {
 									currentAccountInfo();
-								}
-								else {
+								} else {
 									System.out.println("Invalid Input");
 								}
 							}
@@ -207,9 +200,10 @@ public class Main {
 	public static void userMenu() {
 		System.out.println("1. [ Quiz Management ]\n2. [ Account Management ]\n0. [ Log off ]");
 	}
-	
+
 	public static void currentAccountInfo() {
-		System.out.println("Account Type: " + Login.currentType + ", " + "Username: " + Login.currentName + ", " + "Password: " + Login.currentPass);
+		System.out.println("Account Type: " + Login.currentType + ", " + "Username: " + Login.currentName + ", "
+				+ "Password: " + Login.currentPass);
 	}
 
 }
