@@ -43,7 +43,7 @@ public class DeleteQuiz implements ProfessorQuiz {
                     // continue;
                     n = 1;
                 } else if (0 < n && n < 5) {
-                    System.out.println("Exception occurred:" + n);
+                    // System.out.println("Exception occurred:" + n);
                     // continue;
                     // this is the line after the line you want to remove
                     n++;

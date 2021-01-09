@@ -3,11 +3,6 @@ aku
 kamu
 kita
 mereka
-soal 1
-a
-b
-c
-d
 soal 2
 A
 B
