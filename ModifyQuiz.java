@@ -11,6 +11,30 @@ public class ModifyQuiz implements ProfessorQuiz {
 	public void Quiz() {
 		System.out.println("Inside Professor modify quiz");
 
-	}
+		System.out.print("Enter Quiz Set Number: ");
+		Scanner scan = new Scanner(System.in);
+		int quizSetNum = Main.getInput();
+		String questions = "";
 
+		// create quiz
+		try {
+			File file = new File("QuizSet" + quizSetNum + ".txt");
+			if (!file.exists()) {
+				System.out.println("Quiz Set not found !!");
+			}
+
+			FileWriter fw = new FileWriter(file, true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			PrintWriter pw = new PrintWriter(bw);
+
+			System.out.println("Enter the content you want to change:");
+			String Uinput = scan.nextLine();
+			System.out.println("You want to change it to:");
+			String Uinput2 = scan.nextLine();
+
+		} catch (IOException ioe) {
+			System.out.println("Exception occurred:");
+			ioe.printStackTrace();
+		}
+	}
 }
