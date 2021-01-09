@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class TakeQuiz implements StudentQuizManagement{
+public class TakeQuiz implements StudentQuizManagement {
 
 	@Override
 	public void QuizAction() {
@@ -15,17 +15,17 @@ public class TakeQuiz implements StudentQuizManagement{
 		System.out.print("Enter The Quiz Set Number: ");
 		int quizSet = scan.nextInt();
 		File file = new File("QuizSet" + quizSet + ".txt");
-	    Scanner input;
-	    HashMap <String, String> studentAnswer = new HashMap<String, String>();
-	    
+		Scanner input;
+		HashMap<String, String> studentAnswer = new HashMap<String, String>();
+
 		try {
 			input = new Scanner(file);
 			while (input.hasNext()) {
 				Scanner scanner = new Scanner(System.in);
 				String question = input.nextLine();
 				System.out.println(question);
-				
-				String choiceA  = input.nextLine();
+
+				String choiceA = input.nextLine();
 				System.out.println("A) " + choiceA);
 				String choiceB = input.nextLine();
 				System.out.println("B) " + choiceB);
@@ -33,53 +33,52 @@ public class TakeQuiz implements StudentQuizManagement{
 				System.out.println("C) " + choiceC);
 				String choiceD = input.nextLine();
 				System.out.println("D) " + choiceD);
-				
+
 				System.out.print("Enter Your Answer: ");
 				String ans = scanner.nextLine();
-				if(ans.equalsIgnoreCase("A")) {
+				if (ans.equalsIgnoreCase("A")) {
 					ans = choiceA;
-				}
-				else if(ans.equalsIgnoreCase("B")) {
+				} else if (ans.equalsIgnoreCase("B")) {
 					ans = choiceB;
-				}
-				else if(ans.equalsIgnoreCase("C")) {
+				} else if (ans.equalsIgnoreCase("C")) {
 					ans = choiceC;
-				}
-				else if(ans.equalsIgnoreCase("D")) {
+				} else if (ans.equalsIgnoreCase("D")) {
 					ans = choiceD;
 				}
-				
+
 				studentAnswer.put(question, ans);
 			}
-		} 
-		catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		} 
-		
+		}
+
 		// Get Student Answer
 		int totalQuestions = studentAnswer.size();
 		File answerFile = new File("QuizAnswer" + quizSet + ".txt");
-	    Scanner getAnswers;
+		Scanner getAnswers;
 		try {
 			getAnswers = new Scanner(answerFile);
 			while (getAnswers.hasNext()) {
 				String answerQuestion = getAnswers.nextLine();
 				String correctAnswer = getAnswers.nextLine();
-				
-				if(studentAnswer.get(answerQuestion).equalsIgnoreCase(correctAnswer)) {
+
+				if (studentAnswer.get(answerQuestion).equalsIgnoreCase(correctAnswer)) {
 					studentAnswer.remove(answerQuestion);
-					//System.out.println("Compare answer");
+					System.out.println("True");
+					System.out.println("answer : " + studentAnswer.get(answerQuestion) + " correct : " + correctAnswer);
+				} else {
+					System.out.println("answer : " + studentAnswer.get(answerQuestion) + " correct : " + correctAnswer);
+					System.out.println("False");
 				}
 			}
-		} 
-		catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		} 
-		
-		//System.out.println("studentAnswer.size() = " + studentAnswer.size() + " totalQuestions = " + totalQuestions);
+		}
+
+		System.out.println("studentAnswer.size() = " + studentAnswer.size() + "totalQuestions = " + totalQuestions);
 		double result = totalQuestions - studentAnswer.size();
-		System.out.printf("You got %.2f out of 100%n", (result/totalQuestions) * 100);
-		
+		System.out.printf("You got %.2f out of 100%n", (result / totalQuestions) * 100);
+
 		try {
 			File scores = new File(Login.currentName + ".txt");
 			if (!scores.exists()) {
@@ -90,7 +89,7 @@ public class TakeQuiz implements StudentQuizManagement{
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter pw = new PrintWriter(bw);
 
-			pw.println(Login.currentName + " " + Math.round((result/totalQuestions) * 100));
+			pw.println(Login.currentName + " " + Math.round((result / totalQuestions) * 100));
 			pw.close();
 			System.out.printf("Your Score is saved.%n");
 

@@ -8,3 +8,8 @@ a
 b
 c
 d
+soal 3
+A
+B
+C
+D
