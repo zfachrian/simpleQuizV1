@@ -82,7 +82,7 @@ public class Main {
 
 								// while(option != 0) {
 								System.out.println(
-										"1. [ Add Quiz Set ]\n2. [ Modify Quiz Answer ]\n3. [ View Student Scores ]\n4. [ Exit ]");
+										"1. [ Add Quiz Set ]\n2. [ Modify Quiz Answer ]\n3. [ View Student Scores ]\n4. [ Delete Quiz ]\n5. [ Exit ]");
 								option = getInput();
 
 								// Add Quiz Set
@@ -101,8 +101,14 @@ public class Main {
 									ProfessorQuiz professorQuiz = professorfactory.manageQuiz("VIEW");
 									professorQuiz.Quiz();
 								}
-								// Exit
+								// Delete Quiz
 								else if (option == 4) {
+									AbstractFactory professorfactory = ProfessorFactoryProducer.getFactory("Quiz");
+									ProfessorQuiz professorQuiz = professorfactory.manageQuiz("DELETE");
+									professorQuiz.Quiz();
+								}
+								// Exit
+								else if (option == 5) {
 									System.out.println("Back to user page");
 									option = 0;
 								} else {
