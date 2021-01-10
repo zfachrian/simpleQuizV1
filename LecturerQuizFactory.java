@@ -1,8 +1,8 @@
 
-public class ProfessorQuizFactory extends AbstractFactory {
+public class LecturerQuizFactory extends AbstractFactory {
 
 	@Override
-	ProfessorQuiz manageQuiz(String quiz) {
+	LecturerQuiz manageQuiz(String quiz) {
 		if (quiz == null) {
 			return null;
 		}
@@ -21,7 +21,7 @@ public class ProfessorQuizFactory extends AbstractFactory {
 	}
 
 	@Override
-	ProfessorAccount manageAccount(String account) {
+	LecturerAccount manageAccount(String account) {
 
 		return null;
 	}

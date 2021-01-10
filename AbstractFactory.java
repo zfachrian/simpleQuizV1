@@ -1,5 +1,5 @@
-
 public abstract class AbstractFactory {
-	abstract ProfessorQuiz manageQuiz(String quiz);
-	abstract ProfessorAccount manageAccount(String account) ;
+	abstract LecturerQuiz manageQuiz(String quiz);
+
+	abstract LecturerAccount manageAccount(String account);
 }

@@ -12,7 +12,7 @@ public class Register {
 	public Register(String registerType) {
 		this.registerType = registerType;
 	}
-	
+
 	public String getRegisterType() {
 		return registerType;
 	}
@@ -21,7 +21,7 @@ public class Register {
 		this.registerType = registerType;
 	}
 
-	// Create the account method for professor or student
+	// Create the account method for Lecturer or student
 	public void createAccount() throws IOException {
 		Scanner scan = new Scanner(System.in);
 		System.out.print("#Username: ");

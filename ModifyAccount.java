@@ -1,9 +1,9 @@
 
-public class ModifyAccount implements ProfessorAccount{
+public class ModifyAccount implements LecturerAccount {
 
 	@Override
 	public void Account() {
-		System.out.println("Professor Modify Account");
+		System.out.println("Lecturer Modify Account");
 	}
 
 }

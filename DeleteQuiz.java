@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class DeleteQuiz implements ProfessorQuiz {
+public class DeleteQuiz implements LecturerQuiz {
 
     @Override
     public void Quiz() {
