@@ -25,17 +25,17 @@ public class Main {
 			if (RegOrLogin == 1) {
 				while (ProfOrStudent != 1 && ProfOrStudent != 2 && ProfOrStudent != 3) {
 					System.out
-							.println("1. [ Register as Professor ]\n" + "2. [ Reigster as Student ]\n" + "3. [ Exit ]");
+							.println("1. [ Register as Lecturer ]\n" + "2. [ Reigster as Student ]\n" + "3. [ Exit ]");
 					ProfOrStudent = getInput();
 				}
 
-				// Registered as Professor
+				// Registered as Lecturer
 				if (ProfOrStudent == 1) {
 					System.out.print("Passcode: ");
 					String passcode = scan.nextLine();
 
 					if (passcode.equalsIgnoreCase("rahasia")) {
-						Register register = new Register("Professor");
+						Register register = new Register("Lecturer");
 						register.createAccount();
 					} else {
 						ProfOrStudent = 0;
@@ -69,8 +69,8 @@ public class Main {
 
 					System.out.println("This is a " + accountType + " accout.");
 
-					if (accountType.equalsIgnoreCase("PROFESSOR")) {
-						// System.out.println("Etner professor process here");
+					if (accountType.equalsIgnoreCase("Lecturer")) {
+						// System.out.println("Etner Lecturer process here");
 
 						int option = 9;
 						// Quiz management
@@ -87,28 +87,28 @@ public class Main {
 
 								// Add Quiz Set
 								if (option == 1) {
-									AbstractFactory professorfactory = ProfessorFactoryProducer.getFactory("Quiz");
-									ProfessorQuiz professorQuiz = professorfactory.manageQuiz("ADD");
-									professorQuiz.Quiz();
+									AbstractFactory Lecturerfactory = LecturerFactoryProducer.getFactory("Quiz");
+									LecturerQuiz LecturerQuiz = Lecturerfactory.manageQuiz("ADD");
+									LecturerQuiz.Quiz();
 								}
 								// Modify Quiz Answer
 								else if (option == 2) {
 									// System.out.println("Function currently under construction");
-									AbstractFactory professorfactory = ProfessorFactoryProducer.getFactory("Quiz");
-									ProfessorQuiz professorQuiz = professorfactory.manageQuiz("MODIFY");
-									professorQuiz.Quiz();
+									AbstractFactory Lecturerfactory = LecturerFactoryProducer.getFactory("Quiz");
+									LecturerQuiz LecturerQuiz = Lecturerfactory.manageQuiz("MODIFY");
+									LecturerQuiz.Quiz();
 								}
 								// View Student Scores
 								else if (option == 3) {
-									AbstractFactory professorfactory = ProfessorFactoryProducer.getFactory("Quiz");
-									ProfessorQuiz professorQuiz = professorfactory.manageQuiz("VIEW");
-									professorQuiz.Quiz();
+									AbstractFactory Lecturerfactory = LecturerFactoryProducer.getFactory("Quiz");
+									LecturerQuiz LecturerQuiz = Lecturerfactory.manageQuiz("VIEW");
+									LecturerQuiz.Quiz();
 								}
 								// Delete Quiz
 								else if (option == 4) {
-									AbstractFactory professorfactory = ProfessorFactoryProducer.getFactory("Quiz");
-									ProfessorQuiz professorQuiz = professorfactory.manageQuiz("DELETE");
-									professorQuiz.Quiz();
+									AbstractFactory Lecturerfactory = LecturerFactoryProducer.getFactory("Quiz");
+									LecturerQuiz LecturerQuiz = Lecturerfactory.manageQuiz("DELETE");
+									LecturerQuiz.Quiz();
 								}
 								// Exit
 								else if (option == 5) {
@@ -128,9 +128,9 @@ public class Main {
 								if (option == 1) {
 									currentAccountInfo();
 								} else if (option == 2) {
-									AbstractFactory professorfactory = ProfessorFactoryProducer.getFactory("Account");
-									ProfessorAccount professorAccount = professorfactory.manageAccount("View");
-									professorAccount.Account();
+									AbstractFactory Lecturerfactory = LecturerFactoryProducer.getFactory("Account");
+									LecturerAccount LecturerAccount = Lecturerfactory.manageAccount("View");
+									LecturerAccount.Account();
 								} else if (option == 3) {
 									System.out.println("Back to user page");
 									option = 0;
@@ -140,9 +140,9 @@ public class Main {
 							}
 						}
 						/*
-						 * AbstractFactory professorfactory =
-						 * ProfessorFactoryProducer.getFactory("Quiz"); ProfessorQuiz professorQuiz =
-						 * professorfactory.manageQuiz("Add"); professorQuiz.Quiz();
+						 * AbstractFactory Lecturerfactory = LecturerFactoryProducer.getFactory("Quiz");
+						 * LecturerQuiz LecturerQuiz = Lecturerfactory.manageQuiz("Add");
+						 * LecturerQuiz.Quiz();
 						 */
 
 					}

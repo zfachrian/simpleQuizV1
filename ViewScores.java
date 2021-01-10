@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class ViewScores implements ProfessorQuiz {
+public class ViewScores implements LecturerQuiz {
 
 	@Override
 	public void Quiz() {

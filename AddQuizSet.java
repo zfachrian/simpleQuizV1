@@ -5,30 +5,30 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class AddQuizSet implements ProfessorQuiz {
+public class AddQuizSet implements LecturerQuiz {
 
 	@Override
 	public void Quiz() {
-		
+
 		String continueAdd = "";
-		while(!continueAdd.equalsIgnoreCase("n")) {
-			
+		while (!continueAdd.equalsIgnoreCase("n")) {
+
 			System.out.print("Enter Quiz Set Number: ");
 			Scanner scan = new Scanner(System.in);
 			int quizSetNum = Main.getInput();
 			String questions = "";
-			
+
 			// create quiz
 			try {
 				File file = new File("QuizSet" + quizSetNum + ".txt");
 				if (!file.exists()) {
 					file.createNewFile();
 				}
-	
+
 				FileWriter fw = new FileWriter(file, true);
 				BufferedWriter bw = new BufferedWriter(fw);
 				PrintWriter pw = new PrintWriter(bw);
-				
+
 				System.out.print("Question: ");
 				questions = scan.nextLine();
 				pw.println(questions);
@@ -45,39 +45,37 @@ public class AddQuizSet implements ProfessorQuiz {
 				String choiceD = scan.nextLine();
 				pw.println(choiceD);
 				pw.close();
-				//System.out.printf("%s Account Successfully Created.%n", getRegisterType());
-			}
-			catch (IOException ioe) {
+				// System.out.printf("%s Account Successfully Created.%n", getRegisterType());
+			} catch (IOException ioe) {
 				System.out.println("Exception occurred:");
 				ioe.printStackTrace();
 			}
-			
+
 			try {
 				File answerFile = new File("QuizAnswer" + quizSetNum + ".txt");
 				if (!answerFile.exists()) {
 					answerFile.createNewFile();
 				}
-				
+
 				FileWriter ansFW = new FileWriter(answerFile, true);
 				BufferedWriter ansBW = new BufferedWriter(ansFW);
 				PrintWriter ansPW = new PrintWriter(ansBW);
-				
+
 				ansPW.println(questions);
 				System.out.print("Answer: ");
 				String answers = scan.nextLine();
 				ansPW.println(answers);
 				ansPW.close();
-				//System.out.printf("Quiz Set %d has been created.%n", quizSetNum);
-				
-			} 
-			catch (IOException ioe) {
+				// System.out.printf("Quiz Set %d has been created.%n", quizSetNum);
+
+			} catch (IOException ioe) {
 				System.out.println("Exception occurred:");
 				ioe.printStackTrace();
 			}
-			
+
 			System.out.println("Continue (y/n)");
 			continueAdd = scan.nextLine();
-			
+
 		}
 
 	}
