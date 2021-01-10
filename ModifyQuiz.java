@@ -11,7 +11,7 @@ public class ModifyQuiz implements ProfessorQuiz {
 
 	@Override
 	public void Quiz() {
-		System.out.println("Inside Professor modify quiz");
+		System.out.println("modify quiz");
 
 		System.out.print("Enter Quiz Set Number: ");
 		Scanner scan = new Scanner(System.in);
@@ -33,7 +33,6 @@ public class ModifyQuiz implements ProfessorQuiz {
 			Scanner scanner = new Scanner(System.in);
 			System.out.println("question deleted");
 			String lineToRemove = scanner.nextLine();
-			// String lineToRemove = "siapa saya?";
 			String currentLine;
 			int n = 0;
 			while ((currentLine = reader.readLine()) != null) {
@@ -43,19 +42,64 @@ public class ModifyQuiz implements ProfessorQuiz {
 					// continue;
 					n = 1;
 				} else if (0 < n && n < 5) {
+					// this is the line after the line you want to remove
 					n++;
 				} else {
-					// System.out.println("Stop ");
 					writer.write(currentLine + System.getProperty("line.separator"));
 				}
 			}
+			// quest
 			writer.close();
 			reader.close();
 			file.delete();
 			boolean successful = tempFile.renameTo(file);
 			System.out.println(successful);
 
-			// add quiz
+			// delete answer
+			File answerFile = new File("QuizAnswer" + quizSetNum + ".txt");
+			if (!answerFile.exists()) {
+				System.out.println("Quiz Set not found !!");
+			}
+
+			File tempAnswerFile = new File("myTempAnswerFile.txt");
+
+			BufferedReader readerAns = new BufferedReader(new FileReader(answerFile));
+			BufferedWriter writerAns = new BufferedWriter(new FileWriter(tempAnswerFile));
+
+			String currentLineAns;
+			int line = 0; // line indicator
+			while ((currentLineAns = readerAns.readLine()) != null) {
+				// trim newline when comparing with lineToRemove
+				String trimmedLine = currentLineAns.trim();
+				if (trimmedLine.equals(lineToRemove)) {
+					// this is the line you want to remove
+					line = 1;
+				} else if (line == 1) {
+					// this is the line after the line you want to remove
+					line = 0;
+				} else {
+					writerAns.write(currentLineAns + System.getProperty("line.separator"));
+				}
+			}
+			// ans
+			writerAns.close();
+			readerAns.close();
+			answerFile.delete();
+			tempAnswerFile.renameTo(answerFile);
+			System.out.println("Question deleted");
+
+		} catch (IOException ioe) {
+			System.out.println("Exception occurred:");
+			ioe.printStackTrace();
+		}
+
+		// create quiz
+		try {
+			File file = new File("QuizSet" + quizSetNum + ".txt");
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+
 			FileWriter fw = new FileWriter(file, true);
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter pw = new PrintWriter(bw);
@@ -77,7 +121,6 @@ public class ModifyQuiz implements ProfessorQuiz {
 			pw.println(choiceD);
 			pw.close();
 			// System.out.printf("%s Account Successfully Created.%n", getRegisterType());
-
 		} catch (IOException ioe) {
 			System.out.println("Exception occurred:");
 			ioe.printStackTrace();
