@@ -88,12 +88,15 @@ public class Main {
 								// Add Quiz Set
 								if (option == 1) {
 									AbstractFactory professorfactory = ProfessorFactoryProducer.getFactory("Quiz");
-									ProfessorQuiz professorQuiz = professorfactory.manageQuiz("Add");
+									ProfessorQuiz professorQuiz = professorfactory.manageQuiz("ADD");
 									professorQuiz.Quiz();
 								}
 								// Modify Quiz Answer
 								else if (option == 2) {
-									System.out.println("Function currently under construction");
+									// System.out.println("Function currently under construction");
+									AbstractFactory professorfactory = ProfessorFactoryProducer.getFactory("Quiz");
+									ProfessorQuiz professorQuiz = professorfactory.manageQuiz("MODIFY");
+									professorQuiz.Quiz();
 								}
 								// View Student Scores
 								else if (option == 3) {

@@ -8,8 +8,3 @@ a
 b
 c
 d
-soal 2
-A
-B
-C
-D
