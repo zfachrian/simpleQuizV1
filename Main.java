@@ -60,7 +60,7 @@ public class Main {
 				String accountType = login.getUserType();
 
 				if (accountType.equals("")) {
-					System.out.println("User not found.");
+					System.out.println("Username or Password Wrong.");
 				}
 				// processing functions
 				else {
@@ -122,16 +122,21 @@ public class Main {
 							}
 							// Account management
 							else if (option == 2) {
-								System.out.println("1. [ My Account Info ]\n2. [ View All Accounts ]\n3. [ Exit ]");
+								System.out.println(
+										"1. [ My Account Info ]\n2. [ Modify My Accounts ]\n3. [ View All Accounts ]\n4. [ Exit ]");
 								option = getInput();
 
 								if (option == 1) {
 									currentAccountInfo();
 								} else if (option == 2) {
 									AbstractFactory Lecturerfactory = LecturerFactoryProducer.getFactory("Account");
-									LecturerAccount LecturerAccount = Lecturerfactory.manageAccount("View");
+									LecturerAccount LecturerAccount = Lecturerfactory.manageAccount("MODIFY");
 									LecturerAccount.Account();
 								} else if (option == 3) {
+									AbstractFactory Lecturerfactory = LecturerFactoryProducer.getFactory("Account");
+									LecturerAccount LecturerAccount = Lecturerfactory.manageAccount("VIEW");
+									LecturerAccount.Account();
+								} else if (option == 4) {
 									System.out.println("Back to user page");
 									option = 0;
 								} else {
