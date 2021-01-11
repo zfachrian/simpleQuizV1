@@ -64,10 +64,7 @@ public class TakeQuiz implements StudentQuizManagement {
 
 				if (studentAnswer.get(answerQuestion).equalsIgnoreCase(correctAnswer)) {
 					studentAnswer.remove(answerQuestion);
-					System.out.println("True");
-					System.out.println("answer : " + studentAnswer.get(answerQuestion) + " correct : " + correctAnswer);
 				} else {
-					System.out.println("answer : " + studentAnswer.get(answerQuestion) + " correct : " + correctAnswer);
 					System.out.println("False");
 				}
 			}
@@ -75,7 +72,8 @@ public class TakeQuiz implements StudentQuizManagement {
 			e.printStackTrace();
 		}
 
-		System.out.println("studentAnswer.size() = " + studentAnswer.size() + "totalQuestions = " + totalQuestions);
+		// System.out.println("studentAnswer.size() = " + studentAnswer.size() +
+		// "totalQuestions = " + totalQuestions);
 		double result = totalQuestions - studentAnswer.size();
 		System.out.printf("You got %.2f out of 100%n", (result / totalQuestions) * 100);
 
