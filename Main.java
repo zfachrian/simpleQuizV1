@@ -60,7 +60,7 @@ public class Main {
 				String accountType = login.getUserType();
 
 				if (accountType.equals("")) {
-					System.out.println("User not found.");
+					System.out.println("Username or Password Wrong.");
 				}
 				// processing functions
 				else {
