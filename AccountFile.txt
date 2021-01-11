@@ -1,5 +1,5 @@
 zuhad zuhad Student
 zidan zidan Student
-teacher teacher Lecturer
+dosen dosen Lecturer
 lecturer lecturer Lecturer
 fachrian fachrian Student
