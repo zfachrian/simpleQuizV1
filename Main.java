@@ -87,27 +87,27 @@ public class Main {
 
 								// Add Quiz Set
 								if (option == 1) {
-									AbstractFactory Lecturerfactory = LecturerFactoryProducer.getFactory("Quiz");
-									LecturerQuiz LecturerQuiz = Lecturerfactory.manageQuiz("ADD");
+									AbstractHandler LecturerHandler = LecturerHandlerProducer.getHandler("Quiz");
+									LecturerQuiz LecturerQuiz = LecturerHandler.manageQuiz("ADD");
 									LecturerQuiz.Quiz();
 								}
 								// Modify Quiz Answer
 								else if (option == 2) {
 									// System.out.println("Function currently under construction");
-									AbstractFactory Lecturerfactory = LecturerFactoryProducer.getFactory("Quiz");
-									LecturerQuiz LecturerQuiz = Lecturerfactory.manageQuiz("MODIFY");
+									AbstractHandler LecturerHandler = LecturerHandlerProducer.getHandler("Quiz");
+									LecturerQuiz LecturerQuiz = LecturerHandler.manageQuiz("MODIFY");
 									LecturerQuiz.Quiz();
 								}
 								// View Student Scores
 								else if (option == 3) {
-									AbstractFactory Lecturerfactory = LecturerFactoryProducer.getFactory("Quiz");
-									LecturerQuiz LecturerQuiz = Lecturerfactory.manageQuiz("VIEW");
+									AbstractHandler LecturerHandler = LecturerHandlerProducer.getHandler("Quiz");
+									LecturerQuiz LecturerQuiz = LecturerHandler.manageQuiz("VIEW");
 									LecturerQuiz.Quiz();
 								}
 								// Delete Quiz
 								else if (option == 4) {
-									AbstractFactory Lecturerfactory = LecturerFactoryProducer.getFactory("Quiz");
-									LecturerQuiz LecturerQuiz = Lecturerfactory.manageQuiz("DELETE");
+									AbstractHandler LecturerHandler = LecturerHandlerProducer.getHandler("Quiz");
+									LecturerQuiz LecturerQuiz = LecturerHandler.manageQuiz("DELETE");
 									LecturerQuiz.Quiz();
 								}
 								// Exit
@@ -129,12 +129,12 @@ public class Main {
 								if (option == 1) {
 									currentAccountInfo();
 								} else if (option == 2) {
-									AbstractFactory Lecturerfactory = LecturerFactoryProducer.getFactory("Account");
-									LecturerAccount LecturerAccount = Lecturerfactory.manageAccount("MODIFY");
+									AbstractHandler LecturerHandler = LecturerHandlerProducer.getHandler("Account");
+									LecturerAccount LecturerAccount = LecturerHandler.manageAccount("MODIFY");
 									LecturerAccount.Account();
 								} else if (option == 3) {
-									AbstractFactory Lecturerfactory = LecturerFactoryProducer.getFactory("Account");
-									LecturerAccount LecturerAccount = Lecturerfactory.manageAccount("VIEW");
+									AbstractHandler LecturerHandler = LecturerHandlerProducer.getHandler("Account");
+									LecturerAccount LecturerAccount = LecturerHandler.manageAccount("VIEW");
 									LecturerAccount.Account();
 								} else if (option == 4) {
 									System.out.println("Back to user page");
@@ -145,8 +145,8 @@ public class Main {
 							}
 						}
 						/*
-						 * AbstractFactory Lecturerfactory = LecturerFactoryProducer.getFactory("Quiz");
-						 * LecturerQuiz LecturerQuiz = Lecturerfactory.manageQuiz("Add");
+						 * AbstractHandler LecturerHandler = LecturerHandlerProducer.getHandler("Quiz");
+						 * LecturerQuiz LecturerQuiz = LecturerHandler.manageQuiz("Add");
 						 * LecturerQuiz.Quiz();
 						 */
 
