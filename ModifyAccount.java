@@ -63,6 +63,15 @@ public class ModifyAccount implements LecturerAccount {
 			}
 			writer.close();
 			reader.close();
+			if (Login.currentType != "Lecturer") {
+				File oldScore = new File(Login.currentName + ".txt");
+				File newscore = new File(username + ".txt");
+				boolean success = oldScore.renameTo(newscore);
+				if (success == true) {
+				} else {
+					System.out.println("");
+				}
+			}
 		} catch (IOException ioe) {
 			System.out.println("Exception occurred:");
 			ioe.printStackTrace();

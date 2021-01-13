@@ -1,4 +1,4 @@
-public abstract class AbstractFactory {
+public abstract class AbstractHandler {
 	abstract LecturerQuiz manageQuiz(String quiz);
 
 	abstract LecturerAccount manageAccount(String account);

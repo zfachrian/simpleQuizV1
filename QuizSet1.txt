@@ -9,7 +9,7 @@ b
 c
 d
 soal edit
-A edit
-B edit
-C edit
-D edit
+a
+b
+c
+d
