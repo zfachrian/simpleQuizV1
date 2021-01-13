@@ -61,12 +61,17 @@ public class ModifyAccount implements LecturerAccount {
 					writer.write(currentLine + System.getProperty("line.separator"));
 				}
 			}
-			if (Login.currentType == "Student") {
-				File newUsername = new File(username + ".txt");
-				fileAcc.renameTo(newUsername);
-			}
 			writer.close();
 			reader.close();
+			if (Login.currentType != "Lecturer") {
+				File oldScore = new File(Login.currentName + ".txt");
+				File newscore = new File(username + ".txt");
+				boolean success = oldScore.renameTo(newscore);
+				if (success == true) {
+				} else {
+					System.out.println("");
+				}
+			}
 		} catch (IOException ioe) {
 			System.out.println("Exception occurred:");
 			ioe.printStackTrace();

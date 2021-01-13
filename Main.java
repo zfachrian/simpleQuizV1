@@ -180,11 +180,15 @@ public class Main {
 							}
 							// Account management
 							else if (option == 2) {
-								System.out.println("1. [ My Account ]");
+								System.out.println("1. [ My Account ]\n2. [ Modify My Accounts ]");
 								studentOption = getInput();
 
 								if (studentOption == 1) {
 									currentAccountInfo();
+								} else if (option == 2) {
+									AbstractHandler LecturerHandler = LecturerHandlerProducer.getHandler("Account");
+									LecturerAccount LecturerAccount = LecturerHandler.manageAccount("MODIFY");
+									LecturerAccount.Account();
 								} else {
 									System.out.println("Invalid Input");
 								}
