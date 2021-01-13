@@ -1,5 +1,4 @@
 zuhad zuhad Student
-zidan  zidan Student
 dosen dosen Lecturer
 lecturer lecturer Lecturer
-fachrian fachrian Student
+achmad achmad Student
