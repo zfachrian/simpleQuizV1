@@ -6,7 +6,7 @@ public class LecturerHandlerProducer {
 			return new LecturerQuizHandler();
 
 		} else if (choice.equalsIgnoreCase("ACCOUNT")) {
-			return new LecturerAccountHandler();
+			return new AccountHandler();
 		}
 
 		return null;
