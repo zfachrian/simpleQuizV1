@@ -61,6 +61,10 @@ public class ModifyAccount implements LecturerAccount {
 					writer.write(currentLine + System.getProperty("line.separator"));
 				}
 			}
+			if (Login.currentType == "Student") {
+				File newUsername = new File(username + ".txt");
+				fileAcc.renameTo(newUsername);
+			}
 			writer.close();
 			reader.close();
 		} catch (IOException ioe) {

@@ -1,7 +1,9 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -86,8 +88,15 @@ public class TakeQuiz implements StudentQuizManagement {
 			FileWriter fw = new FileWriter(scores, true);
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter pw = new PrintWriter(bw);
+			BufferedReader reader = new BufferedReader(new FileReader(scores));
 
-			pw.println(Login.currentName + " " + Math.round((result / totalQuestions) * 100));
+			// count line
+			int lines = 1;
+			while (reader.readLine() != null)
+				lines++;
+			// pw.println(Login.currentName + " " + Math.round((result / totalQuestions) *
+			// 100));
+			pw.println("Test ke-" + lines + " = " + Math.round((result / totalQuestions) * 100));
 			pw.close();
 			System.out.printf("Your Score is saved.%n");
 
