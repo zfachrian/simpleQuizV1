@@ -1,5 +1,5 @@
 
-public class LecturerQuizFactory extends AbstractFactory {
+public class LecturerQuizHandler extends AbstractHandler {
 
 	@Override
 	LecturerQuiz manageQuiz(String quiz) {
